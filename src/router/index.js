@@ -13,11 +13,16 @@ const routes = [
         path: '/upload',
         name: 'upload',
         component: () => import('../views/upload'),
+    },
+    {
+        path: '/waterfall',
+        name: 'waterfall',
+        component: () => import('../views/waterfall'),
     }
 ]
 
 const router = new VueRouter({
-    mode: 'history',
+    // mode: 'history',
     base: process.env.BASE_URL,
     routes
 })

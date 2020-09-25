@@ -5,10 +5,8 @@
 </template>
 
 <style>
-#app{
-    width: 100vw;
-}
 body{
     margin: 0;
+    background: #f5f5f5;
 }
 </style>
