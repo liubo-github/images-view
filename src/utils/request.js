@@ -3,8 +3,7 @@ import { Message } from 'element-ui'
 // import qs from 'qs';
 
 const request = axios.create({
-    baseURL: 'http://egg.liubo.ink'
-    // baseURL: 'http://127.0.0.1:7001'
+    baseURL: process.env.VUE_APP_BASE_URL
 });
 
 request.interceptors.request.use(config => {
