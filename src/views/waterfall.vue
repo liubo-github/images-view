@@ -1,5 +1,5 @@
 <template>
-    <div class="layout">
+    <div class="layout" v-loading="loading">
             <!-- :isMobile="isMobile" -->
         <waterfall 
             :containerWidth="1290"
@@ -11,6 +11,7 @@
 <script>
 import { getPicData } from '@/api/home'
 import waterfall from './components/waterfall'
+import { throttle } from '@/utils/index'
 export default {
     components: {
         waterfall
@@ -32,6 +33,7 @@ export default {
         if(windowWidth <= 980){
             this.isMobile = true;
         }
+        this.loading = true;
         this.getPicData()
     },
     mounted(){
@@ -42,7 +44,6 @@ export default {
             return () => {
                 let newScrollTop = document.documentElement.scrollTop;
                 if(newScrollTop + windowHeight + 150 >= scrollHeight && !this.loading && this.apiParams.page <= this.lastPage && newScrollTop > oldScrollTop + 75){
-                    this.loading = true;
                     this.apiParams.page += 1;
                     this.getPicData()
                     oldScrollTop = newScrollTop;

@@ -19,15 +19,9 @@
 </template>
 
 <script>
-function getStyle(el,attr){				
-    if(window.getComputedStyle){					
-        return getComputedStyle(el,'')[attr];
-    }else{
-        return el.currentStyle[attr];
-    }				
-}
 import Viewer from 'viewerjs'
 import 'viewerjs/src/css/viewer.css'
+import { getStyle } from '@/utils/index'
 export default {
     props: {
         isMobile: {},
